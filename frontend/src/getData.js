@@ -6,6 +6,7 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Posts from './posts.js';
 
 const columns = [{
   dataField: 'stock',
@@ -56,7 +57,6 @@ const defaultSorted = [{
   order: 'desc'
 }];
 
-
 export default class GetData extends Component {
   constructor() {
     super();
@@ -84,6 +84,13 @@ export default class GetData extends Component {
   };
 
   render() {
+
+    const expandRow = {
+      renderer: row => (
+        <Posts stock={row.stock} tickerList={this.state.stocks} />
+      )
+    };
+
     return (
       <BootstrapTable
         bootstrap4
@@ -93,6 +100,7 @@ export default class GetData extends Component {
         columns={ columns }
         defaultSorted={ defaultSorted }
         filter={ filterFactory() }
+        expandRow={ expandRow }
       />
     )
   }

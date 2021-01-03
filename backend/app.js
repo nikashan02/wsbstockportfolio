@@ -10842,7 +10842,7 @@ function intervalPosts() {
               postList[i][9] = historical;
 
               if (i===postList.length-1) {
-                tickerList = [[postList[0][6], postList[0][4], 0, 0, 0, 0]];
+                tickerList = [[postList[0][6], postList[0][4], 0, 0, 0, 0, []]];
       
                 for (var x=1; x<postList.length; x++) {
                   if (postList[x][6] !== "") {
@@ -10855,7 +10855,7 @@ function intervalPosts() {
                       }
                     };
                     if (found === false) {
-                      tickerList.push([postList[x][6], postList[x][4], 0, 0, 0, 0]);
+                      tickerList.push([postList[x][6], postList[x][4], 0, 0, 0, 0, []]);
                     }
                   }
                 }
@@ -10899,9 +10899,23 @@ function intervalPosts() {
                       tickerList[x][4] = `- ${tickerList[x][4]*-1}%`;
                     }
                     tickerList[x][5] = `$${tickerList[x][5]}`;
+                    
+                    for (var z=0; z<postList.length; z++) {
+                      if (postList[z][6] !== "") {
+                        if (postList[z][6] === tickerList[x][0]) {
+                          tickerList[x][6].push({
+                            "title": postList[z][1],
+                            "upvotes": postList[z][4],
+                            "url": postList[z][5],
+                            "created": postList[z][8],
+                            "historical": postList[z][9]
+                          });
+                        }
+                      }
+                    }
 
                     if (x === tickerList.length-1) {
-                      tickerList.unshift(["stock", "shares", "sentiment", "avg_cost", "total_return", "curr_price"]);
+                      tickerList.unshift(["stock", "shares", "sentiment", "avg_cost", "total_return", "curr_price", "posts"]);
                       tickerList = arrayToJSON(tickerList);
                       responseTickerList = tickerList.slice();
                       console.log("done");
