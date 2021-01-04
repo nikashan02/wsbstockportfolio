@@ -6,27 +6,49 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Posts from './posts.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRedditSquare } from '@fortawesome/free-brands-svg-icons';
+
+function format(cell, row, rowIndex, formatExtraData) {
+  return (
+    <div alignItems= "center" justifyContent="center"><FontAwesomeIcon icon={faRedditSquare} size = '2x'/></div>
+  );
+}
 
 const columns = [{
   dataField: 'stock',
+  text: '',
+  formatter: format,
+  align: 'center',
+  style: {cursor: 'pointer'},
+  headerStyle: (column, colIndex) => {
+    return { width: '5%' }; 
+  }
+}, {
+  dataField: 'stock',
   text: 'Stock',
   sort: true,
+  style: {cursor: 'pointer', verticalAlign: 'middle'}
 }, {
   dataField: 'shares',
   text: 'Shares',
-  sort: true
+  sort: true,
+  style: {cursor: 'pointer', verticalAlign: 'middle'}
 }, {
   dataField: 'sentiment',
   text: 'Sentiment',
-  sort: true
+  sort: true,
+  style: {cursor: 'pointer', verticalAlign: 'middle'}
 }, {
   dataField: 'avg_cost',
   text: 'Average Cost',
-  sort: true
+  sort: true,
+  style: {cursor: 'pointer', verticalAlign: 'middle'}
 }, {
   dataField: 'curr_price',
   text: 'Current Price',
-  sort: true
+  sort: true,
+  style: {cursor: 'pointer', verticalAlign: 'middle'}
 }, {
   dataField: 'total_return',
   text: 'Total Return',
@@ -35,17 +57,20 @@ const columns = [{
     if (cell.charAt(0) === '+') {
       return {
         color: '#4CAF50',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        verticalAlign: 'middle'
       };
     } else if (cell.charAt(0) === '0') {
       return {
         backgroundColor: '#FFFFFF',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        verticalAlign: 'middle'
       }
     }
     return {
       color: '#EF5350',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      verticalAlign: 'middle'
     };
   }
 },];
@@ -100,6 +125,7 @@ export default class GetData extends Component {
       <BootstrapTable
         bootstrap4
         keyField="stock"
+        wrapperClasses="table-responsive"
         pagination={ paginationFactory() }
         data={ this.state.stocks }
         columns={ columns }
