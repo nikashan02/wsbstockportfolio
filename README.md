@@ -37,7 +37,7 @@ Also, be sure to have `git` available in your PATH, `npm` might need it (You can
       $ sudo apt install npm
 
 - #### Other Operating Systems
-  You can find more information about the installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
+  You can find more information about installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
 
 If the installation was successful, you should be able to run the following command.
 
@@ -47,7 +47,7 @@ If the installation was successful, you should be able to run the following comm
     $ npm --version
     6.14.7
 
-If you need to update `npm`, you can make it using `npm`! Cool right? After running the following command, just open again the command line and be happy.
+If you need to update `npm`, you can make it using `npm`. After running the following command, restart the command line.
 
     $ npm install npm -g
 
@@ -59,7 +59,7 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
 ## Configure app
 
-Open `/.env_sample` then edit it with your settings and rename the file to `.env`. You will need:
+Open `/.env_sample` and edit with your settings and rename the file to `.env`. You will need:
 
 - API_KEY → Place your [Tiingo](https://api.tiingo.com/) API token here which is neccessary to retrieve historical and current stock data.
 
