@@ -6,10 +6,11 @@ __REMINDER:__ This is __NOT__ a real stock portfolio and therefore are __NOT__ s
 
 ### A couple notes:
 
-- The first column can be clicked to expand the row and see the posts with information including the post title/link, upvotes, and price of the stock at the post creation date for each stock ticker in the 2nd column.
+- The first column can be clicked to expand the row and see the posts with information including the post title/link, upvotes, and price of the stock at the post timestamp for each stock ticker in the 2nd column.
 - The third column, "Shares", is the number of shares for each ticker which is calculated by summing all the points from each post.
-- The fourth column, "Sentiment", is the positivity rating of the stock according to the the subreddit which is calulated by the average of the sentiment for each post with the matching ticker. The setniment is calulated using Natural Language Proccessing (NLP).
-- The fifth column, "Average Cost", 
+- The fourth column, "Sentiment", is the positivity rating of the stock according to the the subreddit which is calulated by (post sentiment score * post points) for each post with the matching ticker / shares. The sentiment is calulated using a Natural Language Proccessing (NLP) library, [Sentiment](https://www.npmjs.com/package/sentiment).
+- The fifth column, "Average Cost", is calculated by (approximate price around post timestamp * post points) for each post / shares.
+- The seventh column, "Total Return", is calculated by ((current price - average cost) / average cost) * 100
 
 ![Screenshot](https://github.com/nikashan02/wsbstockportfolio/blob/main/screenshot.png?raw=true)
 
