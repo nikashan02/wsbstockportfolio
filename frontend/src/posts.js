@@ -4,7 +4,7 @@ export default class Posts extends Component {
   render() {
 
     let ticker = this.props.stock;
-    let data = this.props.tickerList.find(item => { return item.stock === ticker }).posts;
+    let data = this.props.listOfTickers.find(item => { return item.stock === ticker }).posts;
     let listItems = data.map(d => 
       <li style={{margin: "0 0 15px 0"}}>
         <span>
