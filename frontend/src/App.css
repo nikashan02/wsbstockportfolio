@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+
+h1 {
+  font-family: 'Rubik', sans-serif;
+}
+
+h4 {
+  font-family: 'Rubik', sans-serif;
+}
+
+a {
+  color: #228D57;
+}
+
+a:hover {
+  color: #85BB65;
+}
