@@ -2,13 +2,13 @@
 
 This React.js Express project (visible at [wsbstockportfolio.herokuapp.com](http://wsbstockportfolio.herokuapp.com/)) fetches the top 100 posts from the [r/WallStreetBets](https://www.reddit.com/r/wallstreetbets/) subreddit from the past week with the "DD" flair using the Reddit API and creates a stock portfolio with the 30 most commonly mentioned stock tickers. The portfolio is updated every 20 minutes.
 
-__REMINDER:__ This is __NOT__ a real stock portfolio and therefore are __NOT__ stock investment reccomendations! Please do your own research if something you see on this portfolio interests you.
+__REMINDER:__ This is __NOT__ a real stock portfolio and therefore are __NOT__ stock investment recommendations! Please do your own research if something you see on this portfolio interests you.
 
 ### A couple notes:
 
 - The first column can be clicked to expand the row and see the posts with information including the post title/link, upvotes, and price of the stock at the post timestamp for each stock ticker in the 2nd column.
 - The third column, "Shares", is the number of shares for each ticker which is calculated by summing all the points from each post.
-- The fourth column, "Sentiment", is the positivity rating of the stock according to the the subreddit which is calulated by (post sentiment score * post points) for each post with the matching ticker / shares. The sentiment is calulated using a Natural Language Proccessing (NLP) library, [Sentiment](https://www.npmjs.com/package/sentiment).
+- The fourth column, "Sentiment", is the positivity rating of the stock according to the the subreddit which is calculated by (post sentiment score * post points) for each post with the matching ticker / shares. The sentiment is calculated using a Natural Language Processing (NLP) library, [Sentiment](https://www.npmjs.com/package/sentiment).
 - The fifth column, "Average Cost", is calculated by (approximate price around post timestamp * post points) for each post / shares.
 - The seventh column, "Total Return", is calculated by ((current price - average cost) / average cost) * 100
 
@@ -16,7 +16,7 @@ __REMINDER:__ This is __NOT__ a real stock portfolio and therefore are __NOT__ s
 
 ## Requirements
 
-For development, you will only need Node.js and a node global package, npm, installed in your environement.
+For development, you will only need Node.js and a node global package, npm, installed in your environment.
 
 ### Node
 
@@ -31,7 +31,7 @@ Also, be sure to have `git` available in your PATH, `npm` might need it (You can
 
 - #### Node installation on Ubuntu
 
-  You can install nodejs and npm easily with apt install, just run the following commands.
+  You can install Node.js and npm easily with apt install, just run the following commands.
 
       $ sudo apt install nodejs
       $ sudo apt install npm
@@ -61,7 +61,7 @@ If you need to update `npm`, you can make it using `npm`. After running the foll
 
 Open `/.env_sample` and edit with your settings and rename the file to `.env`. You will need:
 
-- API_KEY → Place your [Tiingo](https://api.tiingo.com/) API token here which is neccessary to retrieve historical and current stock data.
+- API_KEY → Place your [Tiingo](https://api.tiingo.com/) API token here which is necessary to retrieve historical and current stock data.
 
 ## Running the project
 
