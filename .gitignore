@@ -1,2 +1,4 @@
-.env
+dev.env
+local.env
+production.env
 node_modules/

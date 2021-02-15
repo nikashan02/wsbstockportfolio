@@ -7,7 +7,7 @@ import './App.css'
 class App extends Component {
   render() {
     return (
-      <div box-shadow='100px 100px #000000'>
+      <div>
         <LazyHero imageSrc="https://i.imgur.com/2pIUj46.jpg" minHeight='30vh' opacity='0' parallaxOffset='100'>
           <div style={{background: "#E8E9C9", fontSize: "20px", padding: "10px", margin: "10px", transform: "rotate(-6deg)", borderRadius: "5px"}}>
             <h1 style={{color: "#3E3E3C"}}>The r/WallStreetBets Weekly Stock Portfolio</h1>

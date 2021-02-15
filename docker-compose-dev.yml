@@ -1,0 +1,26 @@
+version: "3"
+services: 
+  react-app:
+    image: react-app
+    build: ./frontend/
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - wsbstocks
+    volumes:
+      - ./frontend/:/usr/src/app
+      - /usr/sr/app/node_modules
+  api-server:
+    image: api-server
+    build: ./server/
+    ports:
+      - "5000:5000"
+    networks:
+      - wsbstocks
+    volumes:
+      - ./server/:/usr/src/app
+      - /usr/sr/app/node_modules
+networks:
+  wsbstocks:
+    driver: bridge

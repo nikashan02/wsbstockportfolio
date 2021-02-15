@@ -106,7 +106,9 @@ export default class GetData extends Component {
   }
 
   componentDidMount = () => {
-    axios.get("/getPosts").then(response => {
+    const baseURL = process.env.REACT_APP_BASE_URL;
+    const api = axios.create({baseURL});
+    api.get("/getPosts").then(response => {
       this.setState ({
         stocks: response.data.res.sort((a,b) => a.shares + b.shares).slice(0,30)
       });
